@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".PostActivity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etTitleItem"
+        android:hint="Masukkan judul barang"
+        android:textSize="20sp"
+        android:fontFamily="@font/montserratmedium"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etCategoryItem"
+        android:hint="Masukkan kategori barang"
+        android:textSize="20sp"
+        android:fontFamily="@font/montserratmedium"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etDescriptionItem"
+        android:hint="Masukkan deskripsi barang"
+        android:textSize="20sp"
+        android:fontFamily="@font/montserratmedium"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etPriceItem"
+        android:hint="Masukkan harga barang"
+        android:textSize="20sp"
+        android:fontFamily="@font/montserratmedium"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etLinkImage"
+        android:hint="Link Gambar"
+        android:textSize="20sp"
+        android:fontFamily="@font/montserratmedium"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnPost"
+        android:text="Post"
+        android:textSize="16sp"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>
