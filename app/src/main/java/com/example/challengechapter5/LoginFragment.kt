@@ -35,7 +35,11 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val signInScreen: SharedPreferences = requireActivity().getSharedPreferences(sharedPreferences, Context.MODE_PRIVATE)
+        val loginScreen: SharedPreferences = requireActivity().getSharedPreferences(sharedPreferences, Context.MODE_PRIVATE)
+        if (loginScreen.getString("username", null)!=null){
+            val username = loginScreen.getString("username", null)
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+        }
 
         myDB = UserDatabase.getInstance(requireContext())
 
@@ -46,6 +50,11 @@ class LoginFragment : Fragment() {
                 binding.etUsernameLogin.error = "Masukkan Username kamu yang telah terdaftar"
             } else if (binding.etPasswordLogin.text.isNullOrEmpty()){
                 binding.etPasswordLogin.error = "Masukkan Password kamu"
+            } else if (binding.cbRemember.isChecked) {
+                val editor: SharedPreferences.Editor = loginScreen.edit()
+                editor.putString("username", binding.etUsernameLogin.text.toString())
+                editor.putString("password", binding.etPasswordLogin.text.toString())
+                editor.apply()
             } else {
                 GlobalScope.async {
                     val result = myDB?.userDao()?.login(binding.etUsernameLogin.text.toString(), binding.etPasswordLogin.text.toString())
@@ -53,7 +62,7 @@ class LoginFragment : Fragment() {
                         if (result == false){
                             Toast.makeText(context, "Sign In gagal", Toast.LENGTH_SHORT).show()
                         } else {
-                            val editor: SharedPreferences.Editor = signInScreen.edit()
+                            val editor: SharedPreferences.Editor = loginScreen.edit()
                             editor.putString("username", binding.etUsernameLogin.text.toString())
                             editor.apply()
                             Toast.makeText(context, "Sign In Berhasil", Toast.LENGTH_SHORT).show()

@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailItemFragment"
+            app:destination="@id/detailItemFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -54,7 +57,11 @@
         android:id="@+id/editProfileFragment"
         android:name="com.example.challengechapter5.EditProfileFragment"
         android:label="fragment_edit_profile"
-        tools:layout="@layout/fragment_edit_profile" />
+        tools:layout="@layout/fragment_edit_profile" >
+        <action
+            android:id="@+id/action_editProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.example.challengechapter5.SplashFragment"
@@ -65,6 +72,15 @@
             app:destination="@id/loginFragment" />
         <action
             android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailItemFragment"
+        android:name="com.example.challengechapter5.DetailItemFragment"
+        android:label="fragment_detail_item"
+        tools:layout="@layout/fragment_detail_item" >
+        <action
+            android:id="@+id/action_detailItemFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
 </navigation>
