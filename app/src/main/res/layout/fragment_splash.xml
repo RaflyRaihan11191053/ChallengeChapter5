@@ -8,7 +8,7 @@
     tools:context=".SplashFragment">
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lt_spalsh_animation"
+        android:id="@+id/lavSpalsh"
         app:lottie_rawRes="@raw/logo"
         app:lottie_loop="true"
         app:lottie_autoPlay="true"
