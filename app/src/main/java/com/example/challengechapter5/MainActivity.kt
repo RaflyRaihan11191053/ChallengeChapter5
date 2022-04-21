@@ -21,44 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        fetchAllData()
     }
 
-    private fun fetchAllData() {
-        ApiClient.instance.getAllItems()
-            .enqueue(object : Callback<List<GetAllItemSell>> {
-                override fun onResponse(
-                    call: Call<List<GetAllItemSell>>,
-                    response: Response<List<GetAllItemSell>>
-                ) {
-                    val body = response.body()
-                    val code = response.code()
-                    if (code == 200){
-                        if (body != null) {
-                            showList(body)
-                        }
-                        binding.pbItems.visibility = View.GONE
-                    } else {
-                        binding.pbItems.visibility = View.GONE
-                    }
-                }
 
-                override fun onFailure(call: Call<List<GetAllItemSell>>, t: Throwable) {
-                    binding.pbItems.visibility = View.GONE
-                }
-
-            })
-    }
-
-    private fun showList(data: List<GetAllItemSell>) {
-        val adapter = AdapterItem(object : AdapterItem.OnClickListener {
-            override fun onClickItem(data: GetAllItemSell) {
-                val intent = Intent(this@MainActivity, DetailActivity::class.java)
-                intent.putExtra("id", data.id)
-                startActivity(intent)
-            }
-        })
-        adapter.itemsData(data)
-        binding.rvItems.adapter = adapter
-    }
 }

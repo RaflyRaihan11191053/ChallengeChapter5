@@ -1,6 +1,5 @@
 package com.example.challengechapter5
 
-
 import com.google.gson.annotations.SerializedName
 
 data class GetAllItemSell(

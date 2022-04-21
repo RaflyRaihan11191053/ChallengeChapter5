@@ -33,20 +33,12 @@ class SplashFragment : Fragment() {
         Handler(Looper.getMainLooper()).postDelayed({
 
             val splashScreen: SharedPreferences = requireActivity().getSharedPreferences(sharedPreferences, Context.MODE_PRIVATE)
-            val isFirstTime: Boolean = splashScreen.getBoolean("firstTime", true)
-            val username = splashScreen.getString("username", "Admin")
+            val username = splashScreen.getString("username", "")
 
-            if (isFirstTime){
+            if (username == ""){
                 findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
-                val editor: SharedPreferences.Editor = splashScreen.edit()
-                editor.putBoolean("firstTime", false)
-                editor.apply()
             } else {
-                if (username != "Admin") {
-                    findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
-                } else {
-                    findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
-                }
+                findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
             }
         }, 3000)
     }

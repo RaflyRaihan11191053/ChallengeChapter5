@@ -11,6 +11,6 @@ import kotlinx.parcelize.Parcelize
 data class User (
     @PrimaryKey(autoGenerate = true) var id: Int?,
     @ColumnInfo(name = "username") var username: String,
-    @ColumnInfo(name = "email") var nama: String,
-    @ColumnInfo(name = "password") var email: String
+    @ColumnInfo(name = "email") var email: String,
+    @ColumnInfo(name = "password") var password: String
 ): Parcelable

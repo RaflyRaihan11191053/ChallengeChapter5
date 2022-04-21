@@ -5,17 +5,20 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.challengechapter5.databinding.ItemSellBinding
 
-class AdapterItem(private val onItemClick: OnClickListener): RecyclerView.Adapter<AdapterItem.ViewHolder>() {
+class AdapterItem(private val onItemClick: (Int) -> Unit): RecyclerView.Adapter<AdapterItem.ViewHolder>() {
 
     inner class ViewHolder(private val binding: ItemSellBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(data: GetAllItemSell){
             binding.apply {
                 tvTitle.text = data.title
                 tvCategory.text = data.category
+                tvPrice.text = data.price.toString()
+                Glide.with(binding.root).load(data.image).into(ivItem)
                 root.setOnClickListener {
-                    onItemClick.onClickItem(data)
+                    onItemClick(data.id)
                 }
             }
         }

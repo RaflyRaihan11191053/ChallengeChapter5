@@ -71,7 +71,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etUsernameRegister"
-            android:hint="Masukkan Username"
+            android:hint="Username"
             android:fontFamily="@font/montserratmedium"
             android:paddingStart="16dp"
             android:drawableStart="@drawable/ic_person"
@@ -100,7 +100,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etEmailRegister"
-            android:hint="Masukkan Email"
+            android:hint="Email"
             android:fontFamily="@font/montserratmedium"
             android:paddingStart="16dp"
             android:drawableStart="@drawable/ic_mail"
@@ -130,7 +130,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPasswordRegister"
-            android:hint="Masukkan Password"
+            android:hint="Password"
             android:fontFamily="@font/montserratmedium"
             android:inputType="textPassword"
             android:paddingStart="16dp"
